@@ -6,6 +6,15 @@
             "platform.cpu-stats-enabled": true,
             "platform.thread-stats-enabled": true,
             "platform.sys-stats-enabled": true
+        },
+        "FUTURE_SEQUANA_PSA": {
+            "target.features_add" : ["BOOTLOADER"],
+            "target.mbed_ram_start": "0x08010000",
+            "target.mbed_rom_start": "0x10000000",
+            "target.mbed_ram_size": "0x37700",
+            "target.mbed_rom_size": "0xF8000",
+            "target.bootloader_supported": true,
+            "target.hex_filename" : null
         }
     }
 }

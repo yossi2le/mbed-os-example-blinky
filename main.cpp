@@ -20,13 +20,14 @@ int main()
     while (true) {
         // Blink LED and wait 0.5 seconds
         led1 = !led1;
-        wait_ms(SLEEP_TIME);
+        //wait_ms(SLEEP_TIME);
+        printf("I am alive\n");
 
-        if ((0 == count) || (PRINT_AFTER_N_LOOPS == count)) {
-            // Following the main thread wait, report on the current system status
-            sys_state.report_state();
-            count = 0;
-        }
-        ++count;
+//        if ((0 == count) || (PRINT_AFTER_N_LOOPS == count)) {
+//            // Following the main thread wait, report on the current system status
+//            sys_state.report_state();
+//            count = 0;
+//        }
+//        ++count;
     }
 }
