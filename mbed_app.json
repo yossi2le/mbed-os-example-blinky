@@ -9,7 +9,6 @@
         },
         "FUTURE_SEQUANA_PSA": {
             "target.features_add" : ["BOOTLOADER"],
-            "target.bootloader_supported": true,
             "target.hex_filename" : null
         }
     }
