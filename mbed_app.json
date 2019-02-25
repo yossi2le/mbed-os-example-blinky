@@ -10,6 +10,17 @@
         "FUTURE_SEQUANA_PSA": {
             "target.features_add" : ["BOOTLOADER"],
             "target.hex_filename" : null
+        },
+        "CY8CKIT_062_BLE": {
+            "sd.SPI_MOSI": "P12_0",
+            "sd.SPI_MISO": "P12_1",
+            "sd.SPI_CLK":  "P12_2",
+            "sd.SPI_CS":   "P12_3",
+            "target.features_add" : ["BOOTLOADER"],
+            "target.hex_filename" : null
+        },
+        "K64F": {
+            "target.features_add" : ["BOOTLOADER"]
         }
     }
 }
