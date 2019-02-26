@@ -18,6 +18,7 @@
             "sd.SPI_CS":   "P12_3",
             "target.features_add" : ["BOOTLOADER"],
             "target.hex_filename" : null
+            
         },
         "K64F": {
             "target.features_add" : ["BOOTLOADER"]
