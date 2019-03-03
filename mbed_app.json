@@ -20,8 +20,8 @@
             "target.hex_filename" : null,
             "target.mbed_rom_start": "0x10000000",
             "target.mbed_rom_size": "0x00100000",
-            "target.app_offset": "0x0E400",
-            "target.header_offset": "0x0E000"
+            "target.app_offset": "0x0BC00",
+            "target.header_offset": "0x0B800"
         },
         "CY8CKIT_062_WIFI_BT": {
             "sd.SPI_MOSI": "P12_0",
@@ -32,8 +32,9 @@
             "target.hex_filename" : null,
             "target.mbed_rom_start": "0x10000000",
             "target.mbed_rom_size": "0x00100000",
-            "target.app_offset": "0x0E800",
-            "target.header_offset": "0x0E400"
+            "target.app_offset": "0x0BC00",
+            "target.header_offset": "0x0B800",
+            "platform.stdio-baud-rate": 115200
         },
         "K64F": {
             "target.features_add" : ["BOOTLOADER"]
