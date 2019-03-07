@@ -1,0 +1,218 @@
+@startuml
+
+class BenchApi{
+- _arguments : ArgsHandler
+- _logger : Logger
+- _resources : ResourceFunctions
+- _configurations : Configurations
+- _resultfunctions : Results
+- _plugins : Plugins
+- _benchfunctions : BenchFunctions
+- _commands : Commands
+- _networksim : NetworkSimulator
+- _topologyhandler : Topology
+- _nwsniffer : NetworkSniffer
+
+__ properties __
+
++ results
++ args
++ unknown
++ pluginmanager
++ logger
++ failreason
++ test_name
++ name
++ config
++ env
++ resource_configuration
++ resource_provider
++ dut_expiration
++ duts
++ dut_indexes
++ dutinformations
++ retcode
++ command
++ networksimulator
++ networksimulator_capture_pipe
++ wshark
++ tshark_arguments
++ sniffer_required
+
+__ methods __
+
+- _init()
+- {static}_validate_dut_configs(list, logger)
+- __wrap_obsoleted_functions()
++ get_result(str)
++ append_result(str)
++ is_hardware_in_use()
++ get_logger()
++ get_platforms()
++ get_serialnumbers()
++ get_test_component()
++ get_features_under_test()
++ get_allowed_platforms()
++ status()
++ type()
++ subtype()
++ get_config()
++ skip()
++ skip_info()
++ skip_reason()
++ get_tc_abspath(str)
++ set_config(dict)
++ check_skip()
++ load_plugins()
++ init_duts()
++ duts_release()
++ get_dut_count()
++ dut_count()
++ duts_iterator_all()
++ duts_iterator()
++ is_allowed_dut_index()
++ get_dut(int or str)
++ get_node_endpoint(str)
++ is_my_dut_index(int or str)
++ reset_dut(int or str)
++ get_dut_nick(int)
++ get_dut_index(str)
++ is_my_dut(int or str)
++ {static}create_new_result(str, int, float, dict)
++ add_new_result(str, int, float, dict)
++ set_failure(int, str)
++ input_from_user(str)
++ open_node_terminal(int or str, boolean)
++ delay(float)
++ verify_trace_skip_fail(int or str, str or list)
++ verify_trace(int or str, str or list, boolean)
++ get_time()
++ wait_for_async_response(str, CliAsyncResponse)
++ execute_command(int or str, str, boolean, int, int, int, boolean, boolean, boolean, boolean)
++ send_post_commands(str or list)
++ send_pre_commands(str or list)
++ is_simulator_in_use()
++ init_simulator()
++ init_post_simulator(AllocationContextList)
++ get_simulate_node(int)
++ check_hang()
++ start_simulator()
++ clear_networksimulator()
++ get_init_topology()
++ init_topology()
++ init_sniffer()
++ clear_sniffer()
++ capture_file()
++ get_nw_log_filename()
++ start_external_services()
++ stop_external_services()
++ parse_response(str, CliResponse)
+
+
+__ Backwards compatibility APIs __
+
+
++ networkSimulator
++ name
+
+
+- _parse_response(str, CliResponse)
+- _check_skip()
+- _load_plugins()
+- _init_duts()
+- _duts_release()
+- _start_simulator()
+- _clear_networksimulator()
+- _get_init_topology()
+- _init_topology()
+- _send_post_commands(str)
+- _send_pre_commands(str)
+- _stop_external_services()
+- _start_external_services()
+- _init_simulator()
+- _init_post_simulator(AllocationList)
+- _init_sniffer()
+- _load_plugins()
+- _dut_count()
+- _start_simulator()
+- _clear_networksimulator()
+- _get_init_topology()
+- _init_topology()
++ get_test_name()
++ executeCommand(int or str, str, boolean, int, int, boolean, boolean)
++ get_dut_range(int)
++ verifyTrace(int or str, str or list, boolean)
++ verifyTraceSkipFail(int or str, str or list)
++ getDutCount()
++ get_dut_versions()
+
+
+}
+
+class Bench{
+- _runner_statemachine : RunnerSM
++ run()
+}
+
+class RunnerSM{
++ {static}STATES
++ {static}TRANSITIONS
++ {static}EXCEPTIONS
++ {static}INITIAL_STATE
++ {static}SETUP_STATE
++ {static}SETUP_TEST_STATE
++ {static}EXECUTING_STATE
++ {static}TD_TEST_STATE
++ {static}TEARDOWN_STATE
++ {static}FINISHED_STATE
++ machine
+- _run_cases()
+- _setup_bench()
+- _teardown_bench()
+- _call_exception(str, Exception, int, str)
+- _finish()
+- _run_cases()
+- _select_error_returncode(STATES, Exception)
++ run()
++ setup()
++ teardown()
++ failure(Exception, str, int, str)
++
+}
+
+class ArgsHandler{
+}
+
+class Logger{
+}
+
+class ResourceFunctions{
+}
+
+class Configurations{
+}
+
+class BenchFunctions{
+}
+
+class Commands{
+}
+
+class NetworkSimulator{
+}
+
+class Topology{
+}
+
+class NetworkSniffer{
+}
+
+class Plugins{
+}
+
+class Results{
+}
+
+Bench --|> BenchApi
+
+@enduml

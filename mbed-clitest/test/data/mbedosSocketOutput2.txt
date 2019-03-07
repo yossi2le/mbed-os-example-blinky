@@ -1,0 +1,13 @@
+received: 100 bytes
+string data, printing 100 bytes: 
+0000:  01234567890123456789
+0020:  01234567890123456789
+0040:  01234567890123456789
+[DBG ][mem ]: f:0x0;0x797a3-0x200168f8
+0060:  01234567890123456789
+0080:  01234567890123456789
+Printed 100 bytes
+Accepted connection from address: 192.168.8.110, port: 52432. New client socket opened. sid: 1
+received: 1900 bytes from address: 192.168.8.146, port: 1789
+sent: 150 bytes
+created new echo server, lid: 5

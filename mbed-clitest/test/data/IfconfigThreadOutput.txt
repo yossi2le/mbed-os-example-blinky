@@ -1,0 +1,61 @@
+Interface tun0:
+
+State:               None
+
+
+interface eth0:
+
+State:               None
+MAC-48:              00:a2:ff:1f:51:07
+
+Interface mesh0:
+State:               CONNECTED
+Mode:                Router
+Extension:           6LoWPAN Thread with MLE Attached
+Bootstrap retries:   0
+MAC:                 14:6e:0a:00:00:00:00:01
+br-ula-prefix:       fd:00:0d:b8:00:00:00:00
+radio type:          2.4GHz
+channel mode:        Single
+channel page:        0
+|-channel(s):        13,
+Thread device configuration
+Company:ARM ltd Model:MbedOS Ver:(1.0)
+|-EUI64:               14:6e:0a:00:00:00:00:01
+|-PSKd:                threadjpaketest
+|-provisioning-url:    Not set
+|-max Child count:     32
+|-Downgrade Threshold: 23
+|-Upgrade Threshold:   16
+|-Reed advertisement interval:   570, 60
+Static thread network config
+|-networkid:         Arm Powered Core
+|-PSKc:              74:68:72:65:61:64:6a:70:61:6b:65:74:65:73:74:00
+|-ML-ULA-prefix:     fd:00:0d:b8:00:00:00:00
+|-ML-EID:            84:94:a8:a6:7d:b4:cd:08
+|-private_mac:       16:6e:0a:00:00:00:00:01
+|-panId:             face
+|-extended-pan-id:   00:0d:b8:00:00:e7:75:c4
+|-Key:               00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff
+|-rotation:        3600
+|-seq-counter:     0
+|-Security Policy:   0
+|-Channel:           13
+|-link-timeout:      100 s.
+|-timestamp:         lx
+MAC 16-bit:          00:00
+MAC 64-bit:          16:6e:0a:00:00:00:00:01
+IID:                 14:6e:0a:00:00:00:00:01
+Radio if address
+[0]: fe80::146e:a00:0:1
+[1]: fd00:db8::ff:fe00:0
+[2]: fd00:db8::8494:a8a6:7db4:cd08
+[3]: 2008::c4db:4473:1824:fd53
+[4]: 2003::7f7e:e0ba:33a:b9b4
+[5]: 2009::7114:191d:1c76:f660
+[6]: 2007::5e02:73e1:4cbd:bac9
+[7]: 2001::d5f:5549:3f6b:7679
+[8]: 2002::c26c:ce83:2f82:3bd8
+[9]: 2005::4c51:b27a:4468:c54a
+[10]: 200a::de50:96d3:af73:f785
+[11]: 2004::2c54:62da:6bb:5085

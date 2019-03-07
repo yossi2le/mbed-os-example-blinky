@@ -1,0 +1,53 @@
+@startuml
+
+class NetworkInterface{
++ name: str
++ captures: InterfaceCapture []
+
+- _create(): Boolean
+- _delete(): Boolean
++ start_file_capture(str): str
++ stop_capture(str): Boolean
+}
+class RemoteInterface{
++ remote_client: object
+}
+class LocalInterface
+class SimulatorInterface
+
+NetworkInterface <|-- RemoteInterface
+NetworkInterface <|-- LocalInterface
+LocalInterface <|-- SimulatorInterface
+
+class InterfaceCapture{
++ name: str
++ Interface
+
++ start_capture()
++ stop_capture()
+
+}
+
+class FileCapture{
++ filepath: str
+}
+
+class PipeCapture
+
+
+InterfaceCapture <|-- FileCapture
+InterfaceCapture <|-- PipeCapture
+
+class BaseAllocator{
++ {abstract}can_allocate()
++ {abstract}allocatore()
++ {abstract}release()
+}
+
+class NetworkInterfaceAllocator{
+
+}
+
+BaseAllocator <|-- NetworkInterfaceAllocator
+
+@enduml

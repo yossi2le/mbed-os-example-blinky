@@ -1,0 +1,3 @@
+Interface cell0
+IPv4 if addr: 10.20.3.456
+

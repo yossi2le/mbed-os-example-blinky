@@ -1,0 +1,49 @@
+
+Destination Cache:
+ fe80::ff03
+     PMTU 1280 (life 0)
+ fd00:db8::ff:fe00:face
+     PMTU 1280 (life 0)
+ fe80::ff02
+     PMTU 1280 (life 0)
+Routing table:
+                       ::/0   if:0 src:'RPL DIO' id:1 lifetime:infinite
+     next-hop fe80::ff02 (met 128)
+               fd00:db8::/64  if:0 src:'RPL DIO' id:1 lifetime:infinite
+     next-hop fe80::ff02 (met 192)
+   fd00:db8::ff:fe00:face/128 if:0 src:'RPL Root' id:1 lifetime:3731
+     next-hop fe80::ff02 (met 128)
+                       ::/0   if:0 src:'RPL Instance' id:1 lifetime:3731
+     next-hop fe80::ff02 (met 128)
+                       ::/0   if:0 src:'RPL DIO' id:1 lifetime:infinite
+     next-hop fe80::ff03 (met 128)
+               fd00:db8::/64  if:0 src:'RPL DIO' id:1 lifetime:infinite
+     next-hop fe80::ff03 (met 192)
+   fd00:db8::ff:fe00:face/128 if:0 src:'RPL Root' id:1 lifetime:3824
+     next-hop fe80::ff03 (met 128)
+                       ::/0   if:0 src:'RPL Instance' id:1 lifetime:3824
+     next-hop fe80::ff03 (met 128)
+                   fe80::/64  if:0 src:'Static' id:0 lifetime:infinite
+     On-link (met 128)
+RPL Domain 0x15c1af0
+RPL Instance 1
+---------------
+DODAG fd00:db8::ff:fe00:face
+G=1 MOP=1 Prf=1
+              fd00:db8::/64  lifetime:infinite pref:-1
+                      ::/0   lifetime:infinite pref:0
+              fd00:db8::/64  lifetime:infinite flags:-- 
+  Version 240
+  *Current version* Rank=0180
+    1*0100 0180 80 fe80::ff05%0 (fd00:db8::ff05)
+    1 0100 0180 00 fe80::ff03%0 (fd00:db8::ff03)
+DIO trickle Imin=6, Imax=20972, k=10
+            I=768, now=108, t=524, c=0
+DAO Targets:
+  fd00:db8::ff02/128                       c0 seq=240
+    ->fd00:db8::ff:fe00:face               c0 
+  fd00:db8::ff03/128                       c0 seq=240
+    ->fd00:db8::ff:fe00:face               c0 
+  fd00:db8::ff04/128                       c0 seq=240
+    ->fd00:db8::ff03                       80 
+    ->fd00:db8::ff02                       40 

@@ -1,0 +1,10 @@
+Instance ID: 1
+DODAG ID: fd00:db8::ff:fe00:face
+DODAG version: 240
+DTSN: 0
+Node rank: 0x0100
+Parent flags: 0x0003
+Primary rank: 0x0080
+Primary parent: fe80::ff:fe00:b00c
+Secondary rank: 0x0180
+Secondary parent: fe80::ff:fe00:b00b

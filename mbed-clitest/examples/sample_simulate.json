@@ -1,0 +1,14 @@
+{
+    "execution": {"skip": {"value":  false}},
+    "requirements": {
+      "duts": {
+        "*": {
+          "type": "simulate",
+          "application": {
+            "bin": "./CliNode",
+            "cfg": "CliNode"
+          }
+        }
+      }
+    }
+}

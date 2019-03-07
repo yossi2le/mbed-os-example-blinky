@@ -1,0 +1,6 @@
+{
+  "RCC_SERVER_ADDRESS": "http://test.addr",
+  "RCC_PORT": "1234",
+  "API_KEY": "THISISAPIKEY",
+  "CLOUD_SERVER_ADDRESS": "http://this.is.the.cloud.com/api"
+}

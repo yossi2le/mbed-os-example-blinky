@@ -1,0 +1,47 @@
+@startuml
+
+package generics.py{
+    enum EventTypes{
+        +DUT_LINE_RECEIVED
+    }
+
+    class Observer{
+        -_observers: list
+        -__init__()
+        +reinit()
+        +observe(EventTypes, callable)
+        +forget()
+    }
+
+    class Event{
+        -__init__(EventType, list)
+    }
+}
+package EventMatcher.py{
+    class EventMatcher{
+        +event_type: EventType
+        +flag_to_set: threading.Event
+        +callback: callable
+        +match_data: str
+        +caller: object
+        - __forget: boolean
+        -__init__(EventType, object, match_data:str, flag:threading.Event, callback:callable,
+        forget:boolean)
+        -_event_received(object, str)
+        -_resolve_match_data(object, str): boolean
+    }
+}
+
+package EventMatch.py{
+    class EventMatch{
+        + match:re.MatchObject
+        + ref: object
+        + event_data
+    }
+
+}
+
+EventMatcher -|> Observer
+
+
+@enduml

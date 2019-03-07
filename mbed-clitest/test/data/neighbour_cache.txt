@@ -1,0 +1,15 @@
+Neighbour Cache 0
+Reachable Time: 19889   Retrans Timer: 1000   MTU: 1280
+Router IP Addr: fd00:db8::ff01
+LL Addr: (STALE 0) fa:ce:02:00:00:00:00:00:ff:01
+EUI-64:  (REGISTERED 429) 02:00:00:00:00:00:ff:01
+IP Addr: fe80::ff01
+LL Addr: (STALE 0) fa:ce:02:00:00:00:00:00:ff:01
+Neighbour Cache 1
+Reachable Time: 33557   Retrans Timer: 1000   MTU: 1500
+IP Addr: fd00:db8::ff:fe00:face
+LL Addr: (STALE 0) fa:ce:fa:ce
+Router IP Addr: fe80::ff:fe00:face
+LL Addr: (REACHABLE 10157) fa:ce:fa:ce
+IP Addr: fe80::ff02
+LL Addr: (STALE 0) fa:ce:02:00:00:00:00:00:ff:02

@@ -1,0 +1,147 @@
+@startuml
+
+package DeviceConnectors {
+
+class DutConnectionError{
+}
+
+class Location{
++x_coord
++y_coord
+}
+
+class Dut {
+-{static} _dutlist : list
+-{static} _run : boolean
+-{static} _th : Thread
+-{static} _logger : BenchLoggerAdapter
+-{static} _sem : Semaphore
+-{static} _signalled_duts : deque
+
++ testcase : str
++ version : dict
++ dutinformation : DutInformation
++ name : str
++ dut_name : str
++ stopped : boolean
++ comport : boolean
++ MAC : ?
++ location : Location
++ logger : BenchLoggerAdapter
++ get_time : float
++ query : ?
++ query_timeout : int
++ query_async_expected : boolean
++ query_async_response : CliAsyncResponse
++ waiting_for_response : boolean
++ response_coming_in : ?
++ prev : str
++ traces : list
++ response_traces : list
++ response_received : Event
++ config : dict
++ init_cli_cmds : list
++ post_cli_cmds : list
++ params : dict
++ index : int
++ init_done : Event
++ init_event_matcher : EventMatcher
++ init_wait_timeout : int
++ platform : str
++ resource_id : str
++ vendor : str
++ build : Build
+
++{static} process_dut(Dut)
++{static} run()
+
+- {abstract} _flash_needed()
+
++ {abstract} open_connection()
++ {abstract} close_connection()
++ {abstract} writeline(str)
++ {abstract} readline(int)
++ {abstract} print_info()
++ {abstract} get_info()
++ {abstract} reset(str)
++ {abstract} prepare_connection_close()
++ {abstract} flash(str, boolean)
+
+- _wait_for_exec_ready()
+- __read_response()
+
++ set_log_level(int)
++ set_dut_name(str)
++ get_dut_name()
++ set_init_cli_cmds(list)
++ set_post_cli_cmds(list)
++ set_default_init_cli_cmds()
++ set_default_init_cli_human_cmds()
++ init_cli()
++ init_wait_register()
++ wait_init()
++ init_cli_human()
++ set_time_function(callable)
++ open_dut(?)
++ execute_command(CliRequest, dict)
++ close_dut(boolean)
++ check_retcode(str)
++ finished(boolean)
++ start_dut_thread()
+}
+
+class DutInformation{
+}
+
+class SimulatorRequest{
++ verify_simulator_module(str)
+}
+
+}
+
+package Plugins{
+
+package Raas{
+
+class RaasAllocator {
+}
+
+class DutRaas{
+}
+}
+
+package Local{
+class LocalAllocator{
+}
+
+class DutSerial{
+}
+
+class DutProcess{
+}
+
+class DutSimulate{
+}
+
+class DutConsole{
+}
+
+class DutTcp{
+}
+
+class NetworkSimulator{
+}
+
+class DutDetection{
+}
+}
+}
+
+DutSerial --|> Dut
+DutSimulate --|> DutProcess
+DutRaas --|> Dut
+DutTcp --|> Dut
+DutProcess--|> Dut
+DutConsole--|> DutProcess
+
+@enduml

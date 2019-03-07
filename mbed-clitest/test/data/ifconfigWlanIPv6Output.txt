@@ -1,0 +1,5 @@
+Interface wlan0
+ap: systest
+pwd: 12345abc
+IPv6 if addr: 2001:111:22:ABCD:EF01:3333:44FE:1111
+MAC-48: 12:34:56:78:90:ab

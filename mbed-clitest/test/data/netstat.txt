@@ -1,0 +1,3 @@
+Sck |   Proto   |  Local Address | Remote Address | (state)
+3   | TCP | [fe80::1]:50000       | *:*        | LISTEN
+2   | UDP | *:716       | *:*       |

@@ -1,0 +1,16 @@
+Interface ble0
+  Device Name:  nRF5x
+  Appearance: Generic Phone (64)
+  Connected:   false
+  Advertising: true
+  -interval: 100
+  Preferred Connection Parameters:
+  -minConnectionInterval:        40
+  -maxConnectionInterval:        400
+  -slaveLatency:                 1
+  -connectionSupervisionTimeout: 400
+  Radio if address
+   Public-Address: fe80::ff:fe00:1
+   Random-Static-Address: fe80::ff:fe00:2
+   Random-Private-Resolved-Address: fe80::ff:fe00:3
+   Random-Private-Non-Resolvable-Address: fe80::ff:fe00:4

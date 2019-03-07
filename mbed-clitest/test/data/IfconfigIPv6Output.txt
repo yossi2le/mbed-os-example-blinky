@@ -1,0 +1,4 @@
+Interface eth0
+IPv6 if addr:
+ [0]: 2001:111:22:ABCD:EF01:3333:44FE:1111
+mac: a1:bc:de:f2:33:44

@@ -1,0 +1,35 @@
+MAC stats:
+   MAC TX queue overflows:   0
+   MAC RX packet count:      58
+   MAC TX packet count:      118
+   MAC RX packet drops:      0
+MAC payload stats:
+   MAC TX bytes count:       5580
+   MAC RX bytes count:       2770
+   MAC TX failed count:      0
+   MAC TX retry count:       59
+   MAC TX CCA count:         59
+   MAC Failed CCA count:     0
+   MAC secure packet drops:  0
+6LoWPAN stats:
+   IP RX packet count:       54
+   IP TX packet count:       54
+   IP RX packet drops:       0.69
+   IP checksum errors:       0
+6LoWPAN payload stats:
+   IP TX bytes count:        1920
+   IP RX bytes count:        1864
+   IP routed UP bytes:       0
+Fragmentation stats:
+   Fragmentation RX errors:  0
+   Fragmentation TX errors:  0
+RPL stats:
+   Parent change count:      0
+   Route loops detected:     0
+   No-route count:           0
+Buffer stats:
+   Buffer allocation count:  120
+   Buffer headroom reallocs: 0
+   Buffer headroom shuffles: 5
+   Buffer headroom failures: 0.42
+retcode: 0

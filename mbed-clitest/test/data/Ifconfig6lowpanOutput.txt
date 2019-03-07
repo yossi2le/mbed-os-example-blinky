@@ -1,0 +1,31 @@
+
+interface eth0:
+
+  State:               CONNECTED
+  MAC-48:              02:00:00:00:ff:01
+  IPv6 if addr:
+   role[0]: fe80::ff:fe00:ff01
+   role[1]: fd00:200::ff:fe00:ff01
+   role[2]: fd00:300::ff:fe00:ff01
+
+Interface mesh0:
+
+  State:               CONNECTED
+  Mode:                Router / leader capability
+  Extension:           6LoWPAN ND with MLE
+  MAC:                 02:00:00:00:00:00:ff:02
+  |-channel(s):        All 11-26
+  ND AP:               fd00:db8:ff1::ff:fe00:face
+  ND Prefix:           fd00:db8:ff1::/64
+  GP IPv6:             fd00:db8:ff1::ff:fe00:161e
+  6LoWPAN network configuration
+  |-network ID:        Arm Powered Core
+  |-network filter:    joining all networks
+  MAC 16-bit:          16:1e
+  MAC 64-bit:          02:00:00:00:00:00:ff:02
+  IID:                 00:00:00:00:00:00:ff:02
+  Radio if address
+   [0]: fe80::ff02
+   [1]: fe80::ff:fe00:161e
+   [2]: fd00:db8:ff1::ff:fe00:161e
+   [3]: fd00:db8:ff1::ff02

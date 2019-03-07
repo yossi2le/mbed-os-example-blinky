@@ -1,0 +1,11 @@
+{
+  "RaasAllocator": {
+    "host": "host_name",
+    "username": "user_name",
+    "password": "password",
+    "access_token": "access_token",
+    "share_allocs": false,
+    "queue": true,
+    "queue_timeout": 5
+  }
+}

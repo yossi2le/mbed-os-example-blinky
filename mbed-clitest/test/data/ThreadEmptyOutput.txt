@@ -1,0 +1,7 @@
+thread leader address: none
+thread parent address: none
+thread commissioner address: none
+thread partition info failed
+Child info: count:-1
+Neighbours:
+

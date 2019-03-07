@@ -1,0 +1,5 @@
+D1 --> DutThread: ticker new 1
+D1 <-- DutThread: Ticker id: 42
+D1 <-- DutThread: Tickers:
+D1 <-- DutThread: 0
+D1 <-- DutThread: 1

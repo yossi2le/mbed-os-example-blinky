@@ -16,39 +16,42 @@
     ],
     "target_overrides": {
         "*": {
+            "target.features_add"   : ["STORAGE"],
+            "target.components_add" : ["SD"],
             "platform.stdio-baud-rate"    : 9600,
             "platform.stdio-flush-at-exit": false,
-            "mbed-trace.enable": 0,
-            "platform.stack-stats-enabled": true,
-            "platform.heap-stats-enabled": true,
-            "platform.cpu-stats-enabled": true,
-            "platform.thread-stats-enabled": true,
             "update-client.storage-address"  : "(1024*1024*64)",
             "update-client.storage-size"     : "(1024*1024*2)",
             "update-client.storage-locations": 1,
-            "platform.sys-stats-enabled": true
+            "mbed-trace.enable": 1
+        },
+        "K64F": {
+	    "platform.stdio-baud-rate"    : 9600,
+            "target.mbed_app_start" : "0xE000"
         },
         "FUTURE_SEQUANA_PSA": {
-            "target.features_add" : ["BOOTLOADER"],
-            "target.hex_filename" : null
+            "sd.SPI_MOSI": "P12_0",
+            "sd.SPI_MISO": "P12_1",
+            "sd.SPI_CLK":  "P12_2",
+            "sd.SPI_CS":   "P12_3",
+	    "target.mbed_app_start" : "0x1008e000",
+	    "target.hex_filename" : null
         },
         "CY8CKIT_062_BLE": {
+	    "platform.stdio-baud-rate"    : 9600,
 	    "target.components_add" : ["SD"],
             "sd.SPI_MOSI": "P12_0",
             "sd.SPI_MISO": "P12_1",
             "sd.SPI_CLK":  "P12_2",
             "sd.SPI_CS":   "P12_3",
-            "target.mbed_rom_start": "0x10000000",
-            "target.mbed_rom_size": "0x00100000",
-            "target.app_offset": "0x10000",
-            "target.header_offset": "0x0E000",
-            "target.features_add" : ["BOOTLOADER"],
-            "target.hex_filename" : null   
-        },
-        "K64F": {
-	    "platform.stdio-baud-rate"    : 9600,
-            "target.features_add" : ["BOOTLOADER"]
+	    "target.mbed_rom_start" : "0x10000000",
+	    "target.mbed_rom_size" : "0x100000",
+	    "target.mbed_app_start" : "0x10010000",
+	    "target.mbed_app_size" : "0xF0000",
+	    "target.hex_filename" : null,
+	    "target.OUTPUT_EXT": "bin"
         }
     }
 }
+
 

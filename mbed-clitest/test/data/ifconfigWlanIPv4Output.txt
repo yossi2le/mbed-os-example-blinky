@@ -1,0 +1,5 @@
+Interface wlan0
+ap: systest
+pwd: 12345abc
+IPv4 if addr: 10.20.3.456
+MAC-48: 12:34:56:78:90:ab

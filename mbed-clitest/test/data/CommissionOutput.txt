@@ -1,0 +1,8 @@
+State:          ACCEPT
+Commisioner id:   ARM
+Comm Credential:  PASSWORD
+PSKc:             74:68:72:65:61:64:6a:70:61:6b:65:74:65:73:74:00
+provisioning uri: Accepting Any
+Added devices:
+ [0]: mac: a6:61:43:54:51:a9:d3:cf, pwd: newpass
+ [1]: mac: a6:61:43:54:51:a9:d3:ce, pwd: newpass

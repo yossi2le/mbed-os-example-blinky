@@ -1,0 +1,56 @@
+@startuml
+
+Bench -> ResourceProvider: initialize_duts()
+activate ResourceProvider
+
+ResourceProvider --> Bench: duts
+deactivate ResourceProvider
+activate Bench
+
+Bench -> Dut: init_wait_register()
+deactivate Bench
+activate Dut
+
+create EventMatcher
+Dut -> EventMatcher: EventMatcher()
+activate EventMatcher
+EventMatcher --> Dut
+deactivate EventMatcher
+Dut --> Bench
+deactivate Dut
+activate Bench
+
+Bench -> ResourceProvider: open_dut_connections()
+deactivate Bench
+activate ResourceProvider
+
+ResourceProvider -> Dut: start_dut_thread
+activate Dut
+
+create Dut.readthread
+Dut -> Dut.readthread: run()
+activate Dut.readthread #DarkSalmon
+Dut --> ResourceProvider
+deactivate Dut
+
+ResourceProvider --> Bench
+deactivate ResourceProvider
+activate Bench
+
+Bench -> Dut: wait_init()
+deactivate Bench
+activate Dut
+
+create Event
+Dut.readthread -> Event: Event()
+activate Event #DarkSalmon
+Event -> EventMatcher: _event_received()
+deactivate Event
+activate EventMatcher #DarkSalmon
+EventMatcher -> Dut: init_done.set()
+deactivate EventMatcher
+
+Dut --> Bench
+deactivate Dut
+
+@enduml

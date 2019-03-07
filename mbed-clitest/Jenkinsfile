@@ -1,0 +1,184 @@
+echo "Start to build"
+
+
+properties ([
+    buildDiscarder(
+        logRotator(
+            artifactDaysToKeepStr: '',
+            artifactNumToKeepStr: '',
+            daysToKeepStr: '30',
+            numToKeepStr: '100'
+        )
+    ),
+    parameters ([
+        string(
+            name: "CLINODE_BUILD_NUMBER",
+            description: 'Need verified stable cliNode build from simulator job, was: 190, 299, 341, 624, 647(not working!), 657, 702, 1012, 1061, 1111.',
+            defaultValue: ''
+        )
+    ])
+])
+
+
+timestamps {
+    timeout(time: 60, unit: "MINUTES") {
+        parallel(
+            "stream smoke": {
+                node('mesh-test') {
+                    deleteDir()
+                    dir("mbed-clitest") {
+                        stage("Checkout smoke source") {
+                            echo "hello world!"
+
+                            def scmVars = checkout scm
+                            env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+
+                            // recursively update its submodules
+                            sh 'git submodule update --init --recursive --remote'
+                        }
+                    }
+
+                    def pipeline = load "mbed-clitest/pipeline.groovy"
+
+                    pipeline.smokeBuild()
+
+                    // clean up
+                    step([$class: 'WsCleanup'])
+                }
+            },
+            "stream linux": {
+                node('mesh-test') {
+                    deleteDir()
+                    dir("mbed-clitest"){
+                        stage("Checkout linux source") {
+                            echo "hello world!"
+                            def scmVars = checkout scm
+                            env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+                        }
+
+                        def pipeline = load "pipeline.groovy"
+
+                        pipeline.create_linux_venv()
+                        pipeline.baseBuild('linux', 'python2')
+                        pipeline.baseBuild('linux', 'python3')
+                    }
+                    step([
+                        $class: 'WarningsPublisher',
+                        parserConfigurations: [
+                            [
+                                parserName: 'PyLint',
+                                pattern: '**/pylint.log'
+                            ]
+                        ],
+                        unstableTotalAll: '0',
+                        failedTotalAll: '0'
+                        ])
+
+                    // clean up
+                    step([$class: 'WsCleanup'])
+                }
+            },
+            "stream windows": {
+                node('windows') {
+                    deleteDir()
+                    dir("mbed-clitest"){
+                        stage("Checkout windows source") {
+                            echo "hello world!"
+                            def scmVars = checkout scm
+                            env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+                        }
+
+                        def pipeline = load "pipeline.groovy"
+
+                        pipeline.create_windows_venv()
+                        pipeline.baseBuild('windows', 'python2')
+                    }
+
+                    // clean up
+                    step([$class: 'WsCleanup'])
+                }
+            },
+            "stream example cliapp": {
+                node('arm-none-eabi-gcc') {
+                    deleteDir()
+                    try {
+                        dir("mbed-clitest"){
+                            def pipeline = null
+                            stage ("deploy") {
+                                def scmVars = checkout scm
+                                env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+
+                                pipeline = load "pipeline.groovy"
+                            }
+
+                            if (pipeline) {
+                                pipeline.buildExampleApp()
+                            }
+                        }
+                    } catch (err) {
+                        throw err
+                    } finally {
+                        // clean up
+                        step([$class: 'WsCleanup'])
+                    }
+                }
+            },
+            "stream linux-e2e-local-hw-tests": {
+                node('oul_ext_lin_nuc') {
+                    deleteDir()
+                    try {
+                        dir("mbed-clitest"){
+                            def pipeline = null
+                            stage ("checkout linux-nuc source") {
+                                def scmVars = checkout scm
+                                env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+
+                                pipeline = load "pipeline.groovy"
+                            }
+
+                            if (pipeline) {
+                                pipeline.runLinuxHwTests('python2')
+                                pipeline.runLinuxHwTests('python3')
+                            }
+                        }
+                    } catch (err) {
+                        throw err
+                    } finally {
+                        // clean up
+                        step([$class: 'WsCleanup'])
+                    }
+
+
+                }
+            },
+            "stream win-e2e-local-hw-tests": {
+                node('oul_ext_win_flasher_nuc') {
+                    deleteDir()
+                    try {
+                        dir("mbed-clitest"){
+                            def pipeline = null
+                            stage ("checkout win-nuc source") {
+                                def scmVars = checkout scm
+                                env.GIT_COMMIT_HASH = scmVars.GIT_COMMIT
+
+                                pipeline = load "pipeline.groovy"
+                            }
+
+                            if (pipeline) {
+                                pipeline.runWinHwTests('python2')
+                                pipeline.runWinHwTests('python3')
+                            }
+                        }
+                    } catch (err) {
+                        throw err
+                    } finally {
+                        // clean up
+                        step([$class: 'WsCleanup'])
+                    }
+
+
+                }
+            }
+        )
+    }
+}

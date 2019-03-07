@@ -1,0 +1,8 @@
+thread leader address: fd00:db8::ff:fe00:0
+thread parent address: fe80::146e:a00:0:2
+thread commissioner address: none
+thread partition:ef9d8128 weighting:64 ver:6 stable_ver:149 leader_id:0
+Child info: count:0
+Neighbours:
+[0] short_addr:0c00 mac64:16:6e:0a:00:00:00:00:04 margin:200
+[1] short_addr:0400 mac64:16:6e:0a:00:00:00:00:02 margin:123
