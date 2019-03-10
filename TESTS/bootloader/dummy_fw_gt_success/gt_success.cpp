@@ -17,31 +17,10 @@
 // ----------------------------------------------------------------------------
 
 #include "mbed.h"
-#include "bootloader_cliapp_setup.h"
-#include "bootloader_cliapp_platform.h"
-#include "bootloader_cliapp_cmd.h"
-
-
-//#include "SDBlockDevice.h"
-
-/* initialise sd card blockdevice */
-//SDBlockDevice sd(P12_0, P12_1, P12_2, P12_3);
-
+#include "greentea-client/test_env.h"
 
 int main(void)
 {
-    //printf("\n OFR_DBG Starting cliapp!!!\n");
-
-    // setup the mbed-client-cli test framework
-    bootloader_cliapp_setup();
-
-    // setup the hw platform
-    bootloader_cliapp_platform_setup();
-
-    // Setup cliapp command
-    bootloader_cliapp_cmd_setup();
-
-    // Start running the test framework will block
-    // forever
-    bootloader_cliapp_start();  
+    GREENTEA_TESTSUITE_RESULT(true);
+    return 0;
 }
