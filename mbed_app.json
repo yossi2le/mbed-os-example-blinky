@@ -24,8 +24,12 @@
             "sd.SPI_CLK":  "P12_2",
             "sd.SPI_CS":   "P12_3",
             "target.features_add" : ["BOOTLOADER"],
-            "target.non-secure-rom-start": "0x1008A400",
-            "target.non-secure-rom-size": "0x6DC00",
+            
+            "platform.stdio-baud-rate": 115200
+        },
+        "LPC55S69_NS": {
+            "target.components_add": [ "SD" ],
+            "target.features_add" : ["BOOTLOADER"],
             "platform.stdio-baud-rate": 115200
         },
         "K64F": {
